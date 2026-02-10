@@ -4,6 +4,7 @@ require 'koneksi.php';   // sambungkan ke database
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="description" content="Education LMS template by Dreambuzz">
@@ -12,7 +13,7 @@ require 'koneksi.php';   // sambungkan ke database
 
   <title>Yayasan Dharma Laksana - Kegiatan Kami</title>
 
-  <!-- Mobile Specific Meta-->
+  <!-- Mobile Specific Metaa-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="assets/vendors/bootstrap/bootstrap.css">
@@ -31,17 +32,17 @@ require 'koneksi.php';   // sambungkan ke database
 
 <body id="top-header">
   <!-- header -->
-  <header> 
-   
+  <header>
 
-        <!-- Main Menu Start -->
-       
-        <div class="site-navigation main_menu menu-transparent" id="mainmenu-area">
-            <?php include 'navbar.php'; ?>
-        </div>
 
-        
-    </header>
+    <!-- Main Menu Start -->
+
+    <div class="site-navigation main_menu menu-transparent" id="mainmenu-area">
+      <?php include 'navbar.php'; ?>
+    </div>
+
+
+  </header>
 
   <!-- Page Header -->
   <section class="page-header">
@@ -66,50 +67,49 @@ require 'koneksi.php';   // sambungkan ke database
     <div class="container">
       <div class="row">
         <!-- List Kegiatan -->
-<div class="col-lg-8 col-xl-8">
-  <?php
-  $sql   = "SELECT * FROM kegiatan ORDER BY tanggal_kegiatan DESC";
-  $res   = mysqli_query($conn, $sql);
-  if (mysqli_num_rows($res) > 0):
-    while ($row = mysqli_fetch_assoc($res)):
-  ?>
-  <article class="blog-post-item mb-5">
-    <div class="post-thumb">
-      <img src="<?= htmlspecialchars($row['foto_kegiatan']) ?>"
-           alt="Foto Kegiatan"
-           class="img-fluid rounded shadow-sm">
-    </div>
+        <div class="col-lg-8 col-xl-8">
+          <?php
+          $sql = "SELECT * FROM kegiatan ORDER BY tanggal_kegiatan DESC";
+          $res = mysqli_query($conn, $sql);
+          if (mysqli_num_rows($res) > 0):
+            while ($row = mysqli_fetch_assoc($res)):
+              ?>
+              <article class="blog-post-item mb-5">
+                <div class="post-thumb">
+                  <img src="<?= htmlspecialchars($row['foto_kegiatan']) ?>" alt="Foto Kegiatan"
+                    class="img-fluid rounded shadow-sm">
+                </div>
 
-    <div class="post-item mt-4">
-      <div class="post-meta mb-2">
-        <span class="post-date">
-          <i class="fa fa-calendar-alt mr-2"></i>
-          <?= date('F j, Y', strtotime($row['tanggal_kegiatan'])) ?>
-        </span>
-      </div>
+                <div class="post-item mt-4">
+                  <div class="post-meta mb-2">
+                    <span class="post-date">
+                      <i class="fa fa-calendar-alt mr-2"></i>
+                      <?= date('F j, Y', strtotime($row['tanggal_kegiatan'])) ?>
+                    </span>
+                  </div>
 
-      <!-- JUDUL KEGIATAN -->
-<h2 class="post-title" style="font-size: 26px; font-weight: 700; color:#333;">
-  <?= htmlspecialchars($row['judul_kegiatan']) ?>
-</h2>
+                  <!-- JUDUL KEGIATAN -->
+                  <h2 class="post-title" style="font-size: 26px; font-weight: 700; color:#333;">
+                    <?= htmlspecialchars($row['judul_kegiatan']) ?>
+                  </h2>
 
 
-      <!-- DESKRIPSI SINGKAT -->
-      <div class="post-content mt-3">
-        <p style="font-size: 15px; color:#555; line-height:1.6;">
-          <?= nl2br(htmlspecialchars(substr($row['deskripsi_kegiatan'], 0, 180))) ?>…
-        </p>
-      </div>
-    </div>
-  </article>
-  <?php
-    endwhile;
-  else:
-  ?>
-    <p>Tidak ada kegiatan untuk ditampilkan.</p>
-  <?php endif; ?>
+                  <!-- DESKRIPSI SINGKAT -->
+                  <div class="post-content mt-3">
+                    <p style="font-size: 15px; color:#555; line-height:1.6;">
+                      <?= nl2br(htmlspecialchars(substr($row['deskripsi_kegiatan'], 0, 180))) ?>…
+                    </p>
+                  </div>
+                </div>
+              </article>
+              <?php
+            endwhile;
+          else:
+            ?>
+            <p>Tidak ada kegiatan untuk ditampilkan.</p>
+          <?php endif; ?>
 
-</div>
+        </div>
 
 
         <!-- Sidebar (kosong atau isi sesuai kebutuhan) -->
@@ -161,7 +161,9 @@ require 'koneksi.php';   // sambungkan ke database
   <script src="assets/vendors/imagesloaded.js"></script>
   <script src="assets/vendors/owl/owl.carousel.min.js"></script>
   <script src="assets/vendors/google-map/map.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
   <script src="assets/js/script.js"></script>
 </body>
+
 </html>
